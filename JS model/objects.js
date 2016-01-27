@@ -33,6 +33,7 @@ Employee.save =function() {
 	}
 	else if(Id.value!="") {
 		employee.edit(Id.value);
+		nome.focus();
 	}
 	else{
 		employee.save();

@@ -6,7 +6,6 @@
 }
 
 body {
-    /*background-image: url("file:///home/lyra/Documents/Javascript%20Learning/JS%20model/images/background.jpg");*/
     background-image: linear-gradient(to left,gray,black);
     width: 100%;
     background-size: 200%;
@@ -15,42 +14,8 @@ body {
 a {
   color:white;
 }
-/*
-.top_div_span {
-  height: 20px;
-  background-image: linear-gradient(to top, gray,black);
-  margin-left:7%;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-radius: 10px;
-}
-.top_div_span:hover {
-  color:gray;
-  font-weight: bold;
-  margin-left: 6.5%;
-  border-radius: 15px;
-}
 
-#top_div {
-  margin-top: 0px;
-  margin-left: 12%;
-  border-radius:15px;
-  background-image: linear-gradient(to left,#c9c5f5,black);
-  width: 76%;
-  height: 75px;
-}
-
-#search {
-  color:#f5c5f5; 
-  margin-top: 25px;
-  margin-left: 7%;
-  height: 20px;
-  width: 65%;
-  float:center;
-}
-*/
-
-#fieldset {
+.container #fieldset {
   margin-left:35%;
   background-image: linear-gradient(to left,#c9c5f5,black);
   border-radius:4px;
@@ -59,18 +24,18 @@ a {
   height: 200px;
 }
 
-#fieldsetTitle {
+.container #fieldset #fieldsetTitle {
   margin-left: 38%;
   color:white;
 }
 
-.fieldDescription {
+.container #fieldset .fieldDescription {
   margin-left: 10%;
   color:white;
   font-size: 12px;
 }
 
-.fieldInput {
+.container #fieldset .fieldInput {
   margin-left: 12%;
   margin-top: 2px;
   width: 76%;
@@ -83,7 +48,7 @@ a {
   font-family: Arial;
 }
 
-.fieldButton {
+.container #fieldset .fieldButton {
   margin-left: 12%;
   margin-top: 17px;
   width: 79%;
