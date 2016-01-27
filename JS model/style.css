@@ -1,0 +1,123 @@
+/* Documento Css */
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+    /*background-image: url("file:///home/lyra/Documents/Javascript%20Learning/JS%20model/images/background.jpg");*/
+    background-image: linear-gradient(to left,gray,black);
+    width: 100%;
+    background-size: 200%;
+}
+
+a {
+  color:white;
+}
+/*
+.top_div_span {
+  height: 20px;
+  background-image: linear-gradient(to top, gray,black);
+  margin-left:7%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 10px;
+}
+.top_div_span:hover {
+  color:gray;
+  font-weight: bold;
+  margin-left: 6.5%;
+  border-radius: 15px;
+}
+
+#top_div {
+  margin-top: 0px;
+  margin-left: 12%;
+  border-radius:15px;
+  background-image: linear-gradient(to left,#c9c5f5,black);
+  width: 76%;
+  height: 75px;
+}
+
+#search {
+  color:#f5c5f5; 
+  margin-top: 25px;
+  margin-left: 7%;
+  height: 20px;
+  width: 65%;
+  float:center;
+}
+*/
+
+#fieldset {
+  margin-left:35%;
+  background-image: linear-gradient(to left,#c9c5f5,black);
+  border-radius:4px;
+  margin-top: 60px;
+  width: 317px;
+  height: 200px;
+}
+
+#fieldsetTitle {
+  margin-left: 38%;
+  color:white;
+}
+
+.fieldDescription {
+  margin-left: 10%;
+  color:white;
+  font-size: 12px;
+}
+
+.fieldInput {
+  margin-left: 12%;
+  margin-top: 2px;
+  width: 76%;
+  height: 20px;
+  background-image: linear-gradient(to left,#c9c5f5,black);
+  padding: 2px;
+  border-radius: 5px;
+  border-color: gray;
+  color: white;
+  font-family: Arial;
+}
+
+.fieldButton {
+  margin-left: 12%;
+  margin-top: 17px;
+  width: 79%;
+  background-image: linear-gradient(to left,#c9c5f5,black);
+  padding: 2px;
+  border-radius: 5px;
+  border-color: gray;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: -1px;
+  font-size: 14px;
+  font-family: Arial;
+}
+
+#table_info {
+  letter-spacing: 1px;
+  line-height: 25px;
+  color:white;
+  border: 0px solid ;
+  width: 300px;
+  margin-top:20px;
+  font-size: 15px;
+  padding-bottom: 20px;
+}
+
+#relatorios {
+  float: left;
+  color:#c9c0c6;
+  margin-left: 35%;
+  margin-top: 15px;
+  height: 400px;
+  width: 550px;
+}
+
+#relatorios span.active {
+  font-weight: bold;
+}

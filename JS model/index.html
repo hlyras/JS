@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title></title>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="file:///home/lyra/Documents/Javascript%20Learning/JS/JS%20model/lib.js"></script>
+	<script type="text/javascript" src="file:///home/lyra/Documents/Javascript%20Learning/JS/JS%20model/objects.js"></script>
+</head>
+<body>
+	<fieldset id="fieldset">
+		<p id="fieldsetTitle">FIELDSET</p>
+		<br>
+		<input type="hidden" id="employeeId">
+		<p class="fieldDescription">Name:</p>
+		<input type="text" class="fieldInput" id="employeeName" value="Name"
+		onblur="if(this.value==''){this.value='Name';}"
+		onfocus="if(this.value=='Name'){this.value='';}"><br><br>
+
+		<p class="fieldDescription">Payment:</p>
+		<input type="text" class="fieldInput" id="employeeSalario" value="0.00"
+		onblur="if(this.value==''){this.value='0.00';}"
+		onfocus="if(this.value=='0.00'){this.value='';}"><br>
+
+		<input type="button" class="fieldButton" id="register" onclick="save();" Value="save">
+	</fieldset>	
+	<div id="relatorios">
+		<table id="table_info" border="1">
+		<tr>
+			<td>Name</td>
+			<td>Payment</td>
+		</tr>
+	</table>
+		<span class="active">Registered employees:</span><span id="regEmployees">0</span>
+	</div>
+</body>
+</html>
