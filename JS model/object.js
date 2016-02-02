@@ -3,7 +3,7 @@
 var Employee = function() {
 	this.id;
 	this.name;
-	this.salario;
+	this.cpf;
 
 	this.save = function(){
 		idGen++;
@@ -13,7 +13,7 @@ var Employee = function() {
 	this.edit = function(id) {
 		var c = Employee.buscar(id);
 		c.name = this.name;
-		c.salario = this.salario;
+		c.cpf = this.cpf;
 		Employee.clean();
 	}
 }
@@ -23,10 +23,10 @@ Employee.dados = [];
 Employee.save =function() {
 	var Id = document.getElementById('employeeId');
 	var nome = document.getElementById("employeeName");
-	var salario = document.getElementById("employeeSalario");
+	var cpf = document.getElementById("employeecpf");
 	var employee = new Employee();
 	employee.name = nome.value;
-	employee.salario = parseFloat(salario.value);
+	employee.cpf = cpf.value;
 	if(nome.value=="Name" || nome.value==""){
 		alert("Inclua um funcionário");
 		nome.focus();
@@ -57,23 +57,23 @@ Employee.remove = function(id) {
 Employee.edit = function(id) {
 	var Id = document.getElementById('employeeId');
 	var name = document.getElementById('employeeName');
-	var salario = document.getElementById('employeeSalario');
+	var cpf = document.getElementById('employeecpf');
 
 	var c = Employee.buscar(id);
 
 	Id.value = c.id;
 	name.value = c.name;
-	salario.value = c.salario;
+	cpf.value = c.cpf;
 }
 
 Employee.register = function() {
 	var tabela = document.getElementById('table_info');
-	var html = "<tr><td>Name</td><td>Payment</td></tr>"
+	var html = "<tr><td>Name</td><td>Cpf</td></tr>"
 	for(i=0; i< Employee.dados.length; i++){
 		var a = Employee.dados[i];
 		html += "<tr>";
 		html += "<td>"+a.name+"</td>";
-		html += "<td>" +a.salario+"</td>";
+		html += "<td>" +a.cpf+"</td>";
 		html += "<td> <a href='javascript:remove("+ a.id+")'> remove </a> </td>";
 		html += "<td> <a href='javascript:edit("+ a.id+")'> edit </a> </td>";
 		html += "</tr>";
@@ -99,8 +99,8 @@ Employee.relatorio = function() {
 Employee.clean = function () {
 	var Id = document.getElementById('employeeId');
 	var name = document.getElementById('employeeName');
-	var salario = document.getElementById('employeeSalario');
+	var cpf = document.getElementById('employeecpf');
 	Id.value="";
 	name.value="";
-	salario.value="0.00";
+	cpf.value="0.00";
 }
