@@ -21,23 +21,21 @@ var idGen = 0;
 Employee.dados = [];
 
 Employee.save =function() {
-	var Id = document.getElementById('employeeId');
-	var nome = document.getElementById("employeeName");
-	var cpf = document.getElementById("employeecpf");
+	var Id = $('#employeeId').val();
+
 	var employee = new Employee();
-	employee.name = nome.value;
-	employee.cpf = cpf.value;
-	if(nome.value=="Name" || nome.value==""){
+	employee.name = $("#employeeName").val();
+	employee.cpf = $("#employeecpf").val();
+
+	if($("#employeeName").val()=="Name" || $("#employeeName").val()==""){
 		alert("Inclua um funcionário");
 		nome.focus();
-	}
-	else if(Id.value!="") {
-		employee.edit(Id.value);
-		nome.focus();
-	}
-	else{
+	} else if(Id>0) {
+		employee.edit(Id);
+		$("#employeeName").focus();
+	} else {
 		employee.save();
-		nome.focus();
+		$("#employeeName").focus();
 	}
 	Employee.register();
 	Employee.relatorio();
@@ -55,15 +53,11 @@ Employee.remove = function(id) {
 }
 
 Employee.edit = function(id) {
-	var Id = document.getElementById('employeeId');
-	var name = document.getElementById('employeeName');
-	var cpf = document.getElementById('employeecpf');
-
 	var c = Employee.buscar(id);
 
-	Id.value = c.id;
-	name.value = c.name;
-	cpf.value = c.cpf;
+	$("#employeeId").val(c.id)
+	$("#employeeName").val(c.name)
+	$("#employeecpf").val(c.cpf);
 }
 
 Employee.register = function() {
@@ -97,10 +91,7 @@ Employee.relatorio = function() {
 }
 
 Employee.clean = function () {
-	var Id = document.getElementById('employeeId');
-	var name = document.getElementById('employeeName');
-	var cpf = document.getElementById('employeecpf');
-	Id.value="";
-	name.value="";
-	cpf.value="0.00";
+	$("#employeeId").val(0)
+	$("#employeeName").val("")
+	$("#employeecpf").val("00000000000");
 }

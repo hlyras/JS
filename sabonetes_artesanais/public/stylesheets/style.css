@@ -1,0 +1,68 @@
+body {
+  background-image: linear-gradient(to left,gray,black);;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+h1 {
+	color: white;
+}
+
+menu {
+	color: white;
+}
+
+#tabProd {
+    background-image: linear-gradient(to left,gray,black);
+	margin-left: 100px;
+	margin-top: 100px;
+	border-spacing: 5px;
+	color: silver;
+	float: left;
+	font-weight: bold;
+}
+
+#tabProd:hover {
+    background-image: linear-gradient(to left,#999191,black);
+	margin-left: 100px;
+	margin-top: 100px;
+	border-spacing: 5px;
+	color: white;
+	float: left;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#tabMat {
+    background-image: linear-gradient(to left,gray,black);
+	margin-left: 100px;
+	margin-top: 100px;
+	border-spacing: 5px;
+	color: silver;
+	float: left;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#tabMat:hover {
+    background-image: linear-gradient(to left,#999191,black);
+	margin-left: 100px;
+	margin-top: 100px;
+	border-spacing: 5px;
+	color: white;
+	float: left;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#tabMaterias {
+	color: white;
+}
+
+#frmCad {
+	color: white;
+}

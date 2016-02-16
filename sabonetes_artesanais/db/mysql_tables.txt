@@ -1,0 +1,19 @@
+database - soapDB
+
+tables:
+
+cliente(id, name, telefone)
+
+materia_prima(id, name, descricao, preco)
+
+produto(id, name, descricao)
+
+produto_materia(id, id_produto, id_materia)
+
+produto_produto_venda(id, id_produto, id_produto_venda)
+
+produto_venda(id, name, descricao, preco_venda)
+
+venda(id, id_cliente)
+
+venda_produto(id, id_venda, id_produto)

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body> 
+    <h1>Welcome to <%= title %></h1>
+    <table id="employeeTable" border="1">
+      <% if(employee.length > 0){ %>
+        <tr>
+          <td>Nome</td>
+          <td>cpf</td>
+        </tr>
+        <% for(i=0; i<employee.length; i++) { %>
+          <% var a = employee[i] %>
+          <tr>
+            <td><%= a.id %></td>
+            <td><%= a.name %></td>
+            <td><%= a.cpf %></td>
+          </tr>
+        <% } %>
+      <% } %>
+    </table>
+  </body>
+</html> 

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <title>MATERIAS</title>
+  <script>
+    function del(id) {
+      if (!id || id <= 0) {
+        return;
+      }
+      if (confirm('Deseja realmente excluir?')) {
+        window.location = '/materiaPrima/' + id + '/remove';
+      }
+    }
+  </script>
+</head>
+<body>
+  <table id="tabMaterias">
+  <tr>
+    <td>Id</td>
+    <td>Nome</td>
+    <td>preco</td>
+  </tr>
+<%
+  for (var index in materias) {%>
+    <tr>
+      <td><%=materias[index].id%></td>
+      <td><%=materias[index].name%></td>
+      <td><%=materias[index].preco%></td>
+      <td><a href="/materiaPrima/<%=materias[index].id%>/edit">editar</a></td>
+      <td><a href="javascript:void(0)" onclick="del(<%=materias[index].id%>)">excluir</td>
+    </tr> 
+<%}%>
+</table>
+<a href="/materiaPrima/add">Cadastrar materia</a>
+</body>
+</html>
