@@ -43,5 +43,5 @@ Cliente.remove =  function(id, callback) {
 	
 	var query = null;
 	query = "delete from cliente where id="+cliente.id;
-	db.cnn.exec(query, callback)
+	db.cnn.exec(query, callback);
 }
