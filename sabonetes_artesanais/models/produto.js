@@ -1,5 +1,4 @@
 // Global module/ require
-
 var db = require('../db/connection');
 
 var Produto = function() {
@@ -17,9 +16,9 @@ Produto.save = function(produto, callback) {
 
 	var query = null;
 	if(produto.id){
-		query = "update produto set name='"+ produto.name + "', descricao='"+produto.descricao+"';"
+		query = "update produto set name='"+produto.name+"', descricao='"+produto.descricao+"' where id="+produto.id;
 	} else {
-		query = "insert into produto(name, descricao) values('"+produto.name+"','"+produto.descricao+");"
+		query = "insert into produto(name, descricao) values('"+produto.name+"','"+produto.descricao+"');"
 	}
 	db.cnn.exec(query, callback);
 }
@@ -64,3 +63,5 @@ Produto.precoCusto = function(id, callback) {
 	query = "select id_materia from produto_materia where id_produto="+id;
 	db.cnn.exec(query, callback);
 }
+
+module.exports = Produto;

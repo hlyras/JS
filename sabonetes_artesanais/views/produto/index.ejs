@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Produtos</title>
+    <script>
+      function del(id) {
+        if (!id || id <= 0) {
+          return;
+        }
+        if (confirm('Deseja realmente excluir?')) {
+          window.location = '/produto/'+id+'/remove';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a id="linkHome" href="/">Home</a>
+    <table id="tabs">
+      <tr>
+        <td>Id</td>
+        <td>Nome</td>
+      </tr>
+    <%
+      for (var index in produtos) {%>
+        <tr>
+          <td><%=produtos[index].id%></td>
+          <td><%=produtos[index].name%></td>
+          <td><a href="/produto/<%=produtos[index].id%>/edit">editar</a></td>
+          <td><a href="javascript:void(0)" onclick="del(<%=produtos[index].id%>)">excluir</td>
+        </tr> 
+      <%}%>
+    </table>
+    <h3 id="qtd">Qtd de produtos registrados: <%=produtos.length%></h3>
+    <a id="linkCad" href="/produto/add">Cadastrar produto</a>
+
+  </body>
+</html>

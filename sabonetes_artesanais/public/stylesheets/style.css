@@ -2,33 +2,16 @@ body {
   background-image: linear-gradient(to left,gray,black);;
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: white;
 }
 
 a {
   color: #00B7FF;
 }
 
-h1 {
-	color: white;
-}
-
-menu {
-	color: white;
-}
-
-#tabProd {
-    background-image: linear-gradient(to left,gray,black);
-	margin-left: 100px;
-	margin-top: 100px;
-	border-spacing: 5px;
-	color: silver;
-	float: left;
-	font-weight: bold;
-}
-
-#tabProd:hover {
+#tabs:hover {
     background-image: linear-gradient(to left,#999191,black);
-	margin-left: 100px;
+	margin-left: 200px;
 	margin-top: 100px;
 	border-spacing: 5px;
 	color: white;
@@ -37,32 +20,64 @@ menu {
 	cursor: pointer;
 }
 
-#tabMat {
-    background-image: linear-gradient(to left,gray,black);
-	margin-left: 100px;
+#tabs {
+	background-image: linear-gradient(to left,gray,black);
+	margin-left: 200px;
 	margin-top: 100px;
 	border-spacing: 5px;
 	color: silver;
 	float: left;
 	font-weight: bold;
 	cursor: pointer;
-}
-
-#tabMat:hover {
-    background-image: linear-gradient(to left,#999191,black);
-	margin-left: 100px;
-	margin-top: 100px;
-	border-spacing: 5px;
-	color: white;
-	float: left;
-	font-weight: bold;
-	cursor: pointer;
-}
-
-#tabMaterias {
-	color: white;
+	border-radius: 10px;
 }
 
 #frmCad {
 	color: white;
+}
+
+#linkCad {
+	background-image: linear-gradient(to left,gray,black);
+	padding: 10px;
+	margin-top: 60px;
+	margin-left: -220px;
+	float: left;
+	border-radius: 10px;
+	color: silver;
+	font-weight: bold;
+}
+
+#linkCad:hover {
+    background-image: linear-gradient(to left,#999191,black);
+	padding: 10px;
+	margin-top: 60px;
+	margin-left: -220px;
+	float: left;
+	font-weight: bold;
+	border-radius: 10px;
+	color: white;
+}
+
+#linkHome {
+	background-image: linear-gradient(to left,gray,black);
+	padding: 10px;
+	float: left;
+	border-radius: 10px;
+	color: silver;
+	font-weight: bold;
+}
+
+#linkHome:hover {
+    background-image: linear-gradient(to left,#999191,black);
+	padding: 10px;
+	float: left;
+	font-weight: bold;
+	border-radius: 10px;
+	color: white;
+}
+
+#qtd {
+	color: white;
+	float: left;
+	margin-left: 260px;
 }
