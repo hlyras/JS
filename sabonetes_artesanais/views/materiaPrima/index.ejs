@@ -1,15 +1,17 @@
 <!doctype html>
 <html>
   <head>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
     <title>MATERIAS</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/ajax.js"></script>
     <script>
       function del(id) {
         if (!id || id <= 0) {
           return;
         }
         if (confirm('Deseja realmente excluir?')) {
-          window.location = '/materiaPrima/' + id + '/remove';
+          window.location = '/materiaPrima/'+id+'/remove';
         }
       }
     </script>
@@ -18,6 +20,7 @@
     <a id="linkHome" href="/">Home</a>
     <table id="tabs">
       <tr>
+        <td>info</td>
         <td>Id</td>
         <td>Nome</td>
         <td>preco</td>
@@ -25,11 +28,12 @@
     <%
       for (var index in materias) {%>
         <tr>
+          <td><a href="/materiaPrima/<%=materias[index].id%>/edit">show</a></td>
           <td><%=materias[index].id%></td>
           <td><%=materias[index].name%></td>
           <td><%=materias[index].preco%></td>
-          <td><a href="/materiaPrima/<%=materias[index].id%>/edit">editar</a></td>
-          <td><a href="javascript:void(0)" onclick="del(<%=materias[index].id%>)">excluir</td>
+          <td><a href="/materiaPrima/<%=materias[index].id%>/edit">edit</a></td>
+          <td><a href="javascript:void(0)" onclick="del(<%=materias[index].id%>)">delete</td>
         </tr> 
     <%}%>
   </table>

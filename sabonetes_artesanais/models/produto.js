@@ -28,7 +28,7 @@ Produto.list = function(callback) {
 
 	var query = null;
 	query = "select * from produto";
-	db.cnn.exec(query, callback)
+	db.cnn.exec(query, callback);
 }
 
 Produto.get = function(id, callback) {

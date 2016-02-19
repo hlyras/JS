@@ -1,14 +1,15 @@
 //global module require/export
 var db = require('../db/connection');
 var Produto = require('../models/produto');
+var MateriaPrima = require('../models/materiaprima');
 
 var produtoController = {
 	index: function(req, res, next) {
 		'use strict'
 
-		Produto.list(function(rows, err){
+		Produto.list(function(rows, err) {
 			if(!err){
-				res.render('produto/index', { produtos: rows });
+				res.render('produto/index', { produtos: rows })
 			} else {
 				res.send('err', 500);
 			}

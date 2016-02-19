@@ -2,6 +2,8 @@
 <html>
   <head>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/ajax.js"></script>
     <title>Produtos</title>
     <script>
       function del(id) {
@@ -18,21 +20,23 @@
     <a id="linkHome" href="/">Home</a>
     <table id="tabs">
       <tr>
+        <td>info</td>
         <td>Id</td>
         <td>Nome</td>
       </tr>
     <%
       for (var index in produtos) {%>
         <tr>
+          <td><a href="/produto/<%=produtos[index].id%>/info">show</a></td>
           <td><%=produtos[index].id%></td>
           <td><%=produtos[index].name%></td>
-          <td><a href="/produto/<%=produtos[index].id%>/edit">editar</a></td>
-          <td><a href="javascript:void(0)" onclick="del(<%=produtos[index].id%>)">excluir</td>
+          <td><a href="/produto/<%=produtos[index].id%>/edit">edit</a></td>
+          <td><a href="javascript:void(0)" onclick="del(<%=produtos[index].id%>)">delete</td>
         </tr> 
       <%}%>
     </table>
     <h3 id="qtd">Qtd de produtos registrados: <%=produtos.length%></h3>
     <a id="linkCad" href="/produto/add">Cadastrar produto</a>
-
+    <a id="materiasProduto" href="#" data-status="/materiasPrimas">Materias primas</a>
   </body>
 </html>
