@@ -20,7 +20,5 @@ router.post('/produto/create', produtoController.create);
 router.get('/produto/:id/edit', produtoController.edit);
 router.post('/produto/update', produtoController.update);
 router.get('/produto/:id/remove', produtoController.remove);
-router.get('/produto/:id/info', produtoController.info);
-router.get('/produto/:id/materiaProduto', produtoController.materias);
 
 module.exports = router;
