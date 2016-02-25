@@ -1,3 +1,4 @@
+//global module export/require
 var MateriaPrima = require('../models/materiaprima');
 
 var homeController = {

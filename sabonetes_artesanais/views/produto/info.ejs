@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/javascripts/ajax.js"></script>
+    <title>Produtos</title>
+    <script>
+      function del(id) {
+        if (!id || id <= 0) {
+          return;
+        }
+        if (confirm('Deseja realmente excluir?')) {
+          window.location = '/produto/'+id+'/remove';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <a id="linkHome" href="/">Home</a>
+    <table id="tabs">
+        <tr>
+          <td id="active">Id</td>
+          <td id="active">Nome</td>
+          <td id="active">descrição</td>
+        </tr>
+        <tr>
+          <td><%=produto[0].id%></td>
+          <td><%=produto[0].name%></td>
+          <td><%=produto[0].descricao%></td>
+          <td id="active"><a id="materiasProduto" href="#" data-status="/produto/<%=produto[0].id%>/materias">Materias Primas</a></td>
+        </tr> 
+    </table>
+      <div id="div_materias">
+        <table id="mat_add_table" border="1">
+          <tr>
+            <td>Id</td>
+            <td>Nome</td>
+          </tr>
+          <% for(var index in mats) {%>
+            <tr>
+              <td><%= mats[index].id%></td>
+              <td><%= mats[index].name%></td>
+              <td><a id="addMat" href="#" data-status="/produto/<%=produto[0].id%>/<%=mats[index].id%>/addMateria">Incluir</a></td>
+            </tr>
+          <%}%>
+        </table>
+      </div>
+      <form></form>
+  </body>
+</html>

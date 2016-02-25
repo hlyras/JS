@@ -32,7 +32,6 @@ a {
 	border-spacing: 5px;
 	color: silver;
 	float: left;
-	font-weight: bold;
 	cursor: pointer;
 	border-radius: 10px;
 	margin-top: 130px;
@@ -43,7 +42,6 @@ a {
 	border-spacing: 5px;
 	color: white;
 	float: left;
-	font-weight: bold;
 	cursor: pointer;
 }
 
@@ -90,4 +88,22 @@ a {
 #tabmaterias_produto:hover {
 	color: white;
 	font-weight: bold;
+}
+
+#materias_produtos {
+	border-radius: 15px;
+	border-right: 50px;
+	border-left: 50px;
+	margin-left: 450px;
+	margin-top: 100px;
+	border-spacing: 5px;
+}
+
+#active {
+	font-weight: bold;
+}
+
+#div_materias {
+	margin-top: 200px;
+	padding: 10px;
 }

@@ -51,16 +51,15 @@ Produto.materiasPrimas = function(id, callback) {
 	'use strict'
 
 	var query = null;
-	query = "select id_materia from produto_materia where id_produto="+id;
+	query = "select distinct materia_prima.name from materia_prima inner join produto_materia on materia_prima.id=produto_materia.id_materia where produto_materia.id_produto="+id;
 	db.cnn.exec(query, callback);
 }
 
-Produto.precoCusto = function(id, callback) {
+Produto.insertMateria = function(id_produto, id_materia, callback) {
 	'use strict'
 
 	var query = null;
-	var materias = Produto.materiasPrimas(id);
-	query = "select id_materia from produto_materia where id_produto="+id;
+	query = "insert into produto_materia(id_produto, id_materia) values("+id_produto+","+id_materia+");"
 	db.cnn.exec(query, callback);
 }
 

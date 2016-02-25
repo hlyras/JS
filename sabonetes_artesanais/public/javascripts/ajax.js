@@ -1,29 +1,43 @@
-api = {
+//Funções executadas através de Ajax
+
+//Mostrar Matérias inseridas no produto selecionado
+mat_pro = {
   get: function(status){
     $.ajax({
       url: "http://localhost:3000" + status
     }).done(function( data ) {
       if(data != undefined && data != '')
-        $("#pag").html(data);
+        $("#tabs").html($("#tabs").html()+data);
       else
         alert('sem conteúdo')
     }).fail(function(  ) {
       alert("Status de falha");
     });
-  }
-}
-
-seq = {
-  get: function(status){
+  },
+  list: function(status) {
     $.ajax({
       url: "http://localhost:3000" + status
     }).done(function( data ) {
-      if(data != undefined && data != '')
-
-      else
-        alert('sem conteúdo')
+      if(data != undefined && data != ''){
+        $("#div_materias").html(data);
+      } else {
+        alert('sem conteúdo');
+      }
     }).fail(function(  ) {
-      alert("Status de falha");
+      alert("status de falha");
+    });
+  },
+  insert: function(status) {
+    $.ajax({
+      url: "http://localhost:3000" + status
+    }).done(function( data ) {
+      if(data != undefined && data != ''){
+        alert("Materia Inserida Com sucesso");
+      } else {
+        alert('sem conteúdo');
+      }
+    }).fail(function(  ) {
+      alert("status de falha");
     });
   }
 }
@@ -31,7 +45,23 @@ seq = {
 $(document).ready(function(){
   $("#materiasProduto").on('click', function(){
     if($(this).data('status')){
-      seq.get($(this).data('status'));
+      mat_pro.get($(this).data('status'));
+    }
+  });
+});
+
+$(document).ready(function(){
+  $("#materias_get").on('click', function(){
+    if($(this).data('status')){
+      mat_pro.list($(this).data('status'));
+    }
+  });
+});
+
+$(document).ready(function(){
+  $("#addMat").on('click', function(){
+    if($(this).data('status')){
+      mat_pro.insert($(this).data('status'));
     }
   });
 });
