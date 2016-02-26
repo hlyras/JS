@@ -32,7 +32,7 @@ mat_pro = {
       url: "http://localhost:3000" + status
     }).done(function( data ) {
       if(data != undefined && data != ''){
-        alert("Materia Inserida Com sucesso");
+        alert(data);
       } else {
         alert('sem conteúdo');
       }
@@ -48,18 +48,14 @@ $(document).ready(function(){
       mat_pro.get($(this).data('status'));
     }
   });
-});
 
-$(document).ready(function(){
   $("#materias_get").on('click', function(){
     if($(this).data('status')){
       mat_pro.list($(this).data('status'));
     }
   });
-});
 
-$(document).ready(function(){
-  $("#addMat").on('click', function(){
+  $(".addMat").on('click', function(){
     if($(this).data('status')){
       mat_pro.insert($(this).data('status'));
     }

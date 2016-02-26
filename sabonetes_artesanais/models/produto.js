@@ -59,8 +59,10 @@ Produto.insertMateria = function(id_produto, id_materia, callback) {
 	'use strict'
 
 	var query = null;
+	var query2 = null;
 	query = "insert into produto_materia(id_produto, id_materia) values("+id_produto+","+id_materia+");"
-	db.cnn.exec(query, callback);
+	query2 = "delete a from produto_materia as a, produto_materia as b where a.id_produto=b.id_produto and a.id_materia=b.id_materia and a.id<b.id";
+	db.cnn.exec(query, query2, callback);
 }
 
 module.exports = Produto;

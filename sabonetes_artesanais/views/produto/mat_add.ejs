@@ -1,0 +1,12 @@
+<table id="mat_add_table" border="1">
+	<tr>
+		<td>Id</td>
+		<td>Nome</td>
+	</tr>
+	<% for(var index in materias) {%>
+		<tr>
+			<td><%= materias[index].id%></td>
+			<td><%= materias[index].name%></td>
+		</tr>
+	<%}%>
+</table>

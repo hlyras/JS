@@ -10,6 +10,7 @@ var Employee = function() {
 		this.id = idGen;
 		Employee.dados.push(this);
 	}
+
 	this.edit = function(id) {
 		var c = Employee.buscar(id);
 		c.name = this.name;
@@ -17,6 +18,7 @@ var Employee = function() {
 		Employee.clean();
 	}
 }
+
 var idGen = 0;
 Employee.dados = [];
 

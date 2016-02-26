@@ -119,22 +119,28 @@ var produtoController = {
 			} else {
 				res.send('err', 500);
 			}
-		})
+		});
 	},
 	insert: function(req, res, next) {
 		'use strict'
 
-		console.log("variaveis idp e id")
-		console.log(req.param('id'));
-		console.log(req.param('idM'));
-
-		Produto.insertMateria(req.param('id'), req.param('idM'), function(rows, err) {
+		Produto.materiasPrimas(req.param('id'), function(rows, err){
 			if(!err) {
-				res.render('/');
+				if(rows.length==0){
+					Produto.insertMateria(req.param('id'), req.param('idM'), function(rows, err) {
+						if(!err) {
+							res.render('produto/alert');
+						} else {
+							res.send('err', 500);
+						}
+					})
+				} else {
+					alert("Materia ja inclusa");
+				}
 			} else {
 				res.send('err', 500);
 			}
-		})
+		});
 	}
 }
 
