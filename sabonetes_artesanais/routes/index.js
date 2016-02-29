@@ -13,6 +13,7 @@ router.post('/materiaPrima/create', materiaController.create);
 router.get('/materiaPrima/:id/edit', materiaController.edit);
 router.post('/materiaPrima/update', materiaController.update);
 router.get('/materiaPrima/:id/remove', materiaController.remove);
+router.get('/materia/:id/info', materiaController.info);
 
 router.get('/produto', produtoController.index);
 router.get('/produto/add', produtoController.add);
@@ -23,6 +24,7 @@ router.get('/produto/:id/remove', produtoController.remove);
 router.get('/produto/:id/info', produtoController.info);
 router.get('/produto/:id/materias', produtoController.materias);
 router.get('/produto/:id/mats', produtoController.listarMaterias);
-router.get('/produto/:id/:idM/addMateria', produtoController.insert);
+router.get('/produto/:id/:idM/addMateria', produtoController.insertMateria);
+router.get('/produto/:id/:idM/removeMateria', produtoController.removeMateria);
 
 module.exports = router;

@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	<title><%=materia[0].name%></title>
+</head>
+<body>
+	<div class="header">
+		<div id="headline">
+			<a id="linkHome" href="/">Home</a>
+			<a id="linkProdutos" href="/produto">Produtos</a>
+			<a id="linkMaterias" href="/materiaPrima">Matérias Primas</a>
+		</div>
+	</div>
+
+<div class="container">
+	<div class="div_tabela">
+		<table id="tabs">
+			<tr>
+				<td id="active">Id</td>
+				<td id="active">Nome</td>
+				<td id="active">Preço</td>
+				<td id="active">descrição</td>
+			</tr>
+			<tr>
+				<td><%=materia[0].id%></td>
+				<td><%=materia[0].name%></td>
+				<td><%=materia[0].preco%></td>
+				<td><%=materia[0].descricao%></td>
+				<td><a href="/materiaPrima/<%=materia[0].id%>/edit">edit</a></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+</body>
+</html>

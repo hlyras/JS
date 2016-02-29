@@ -17,17 +17,28 @@
     </script>
   </head>
   <body>
-    <a id="linkHome" href="/">Home</a>
-    <table id="tabs">
+    <div class="header">
+      <div id="headline">
+        <a id="linkHome" href="/">Home</a>
+        <a id="linkProdutos" href="/produto">Produtos</a>
+        <a id="linkMaterias" href="/materiaPrima">Matérias Primas</a>
+    </div>
+  </div>  
+  <div class="container">
+    <div class="div_cadastrar">
+      <a id="linkCad" href="/materiaPrima/add">Cadastrar materia</a>
+    </div>
+    <div class="div_tabela">
+  <table id="tabs">
       <tr>
-        <td id="active">Id</td>
+        <td id="active">info</a>
         <td id="active">Nome</td>
         <td id="active">preco</td>
       </tr>
     <%
       for (var index in materias) {%>
         <tr>
-          <td><%=materias[index].id%></td>
+          <td><a href="/materia/<%=materias[index].id%>/info">show</a></td>
           <td><%=materias[index].name%></td>
           <td><%=materias[index].preco%></td>
           <td><a href="/materiaPrima/<%=materias[index].id%>/edit">edit</a></td>
@@ -35,8 +46,7 @@
         </tr> 
     <%}%>
   </table>
-  
-  <h3 id="qtd">Qtd de materias registradas: <%= materias.length%></h3>
-    <a id="linkCad" href="/materiaPrima/add">Cadastrar materia</a>
+  <div>
+  </div>
   </body>
 </html>

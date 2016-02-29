@@ -1,7 +1,23 @@
-<% for(var index in materias) {%>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td><%=materias[index].name%></td>
-	<tr></tr>
-<%}%>
+<script type="text/javascript" src="/javascripts/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="/javascripts/ajax.js"></script>
+<table id="tabs">
+    <tr>
+      <td id="active">Id</td>
+      <td id="active">Nome</td>
+      <td id="active">descrição</td>
+    </tr>
+    <tr>
+      <td><%=produto[0].id%></td>
+      <td><%=produto[0].name%></td>
+      <td><%=produto[0].descricao%></td>
+      <td id="active"><a class="materiasProduto" href="#" data-status="/produto/<%=produto[0].id%>/materias">Materias Primas</a></td>
+    </tr>
+    <% for(var index in materias) {%>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><%=materias[index].name%></td>
+	    <td><a class="removeMat" href="#" data-status="/produto/<%=produto[0].id%>/<%=materias[index].id_materia%>/removeMateria">remove</a></td>
+		<tr></tr>
+	<%}%>
+</table>

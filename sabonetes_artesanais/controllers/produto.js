@@ -9,7 +9,7 @@ var produtoController = {
 
 		Produto.list(function(rows, err) {
 			if(!err){
-				res.render('produto/index', { produtos: rows })
+				res.render('produto/index', { produtos: rows });
 			} else {
 				res.send('err', 500);
 			}
@@ -67,7 +67,7 @@ var produtoController = {
 
 		Produto.remove(req.param('id'), function(rows, err) {
 			if(!err) {
-				res.redirect('/produto')
+				res.redirect('/produto');
 			} else {
 				res.send('err', 500);
 			}
@@ -84,7 +84,7 @@ var produtoController = {
 						var materias = rows;
 						MateriaPrima.list(function(rows, err){
 							if(!err) {
-								res.render('produto/info', { produto: produto, materias: materias, mats: rows })
+								res.render('produto/info', { produto: produto, materias: materias, mats: rows });
 							} else {
 								res.send('err', 500);
 							}
@@ -96,18 +96,32 @@ var produtoController = {
 			} else {
 				res.send('err', 500);
 			}
-		})
+		});
 	},
 	materias: function(req, res, next) {
 		'use strict'
 
 		Produto.materiasPrimas(req.param('id'), function(rows, err) {
 			if(!err) {
-				res.render('produto/mat_pro', { materias: rows })
+				var materias = rows;
+				Produto.get(req.param('id'), function(rows, err) {
+					if(!err) {
+						var produto = rows;
+						MateriaPrima.list(function(rows, err){
+							if(!err) {
+								res.render('produto/mat_pro', { materias: materias, produto: produto, mats: rows });
+							} else {
+								res.send('err', 500);
+							}
+						})
+					} else {
+						res.send('err', 500);
+					}
+				});
 			} else {
-				res.send('err', 500)
+				res.send('err', 500);
 			}
-		})
+		});
 	},
 	listarMaterias: function(req, res, next) {
 		'use strict'
@@ -121,27 +135,35 @@ var produtoController = {
 			}
 		});
 	},
-	insert: function(req, res, next) {
+	insertMateria: function(req, res, next) {
 		'use strict'
 
-		Produto.materiasPrimas(req.param('id'), function(rows, err){
+		Produto.insertMateria(req.param('id'), req.param('idM'), function(rows, err) {
 			if(!err) {
-				if(rows.length==0){
-					Produto.insertMateria(req.param('id'), req.param('idM'), function(rows, err) {
-						if(!err) {
-							res.render('produto/alert');
-						} else {
-							res.send('err', 500);
-						}
-					})
-				} else {
-					alert("Materia ja inclusa");
-				}
+				Produto.removeDuplicate(function(rows, err) {
+					if(!err) {
+						res.render('produto/sucess');
+						return;
+					} else {
+						res.send('err', 500);
+					}
+				});
+			} else {
+				res.send('err', 500);
+			}
+		});
+	},
+	removeMateria: function(req, res, next) {
+		'use strict'
+
+		Produto.removeMateria(req.param('id'), req.param('idM'), function(rows, err) {
+			if(!err) {
+				res.render('produto/sucess');
 			} else {
 				res.send('err', 500);
 			}
 		});
 	}
-}
+};
 
 module.exports = produtoController;

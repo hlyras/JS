@@ -72,6 +72,17 @@ var materiaController = {
 				res.send('err', 500);
 			}
 		})
+	},
+	info: function(req, res, next) {
+		'use strict'
+
+		MateriaPrima.get(req.param('id'), function(rows, err) {
+			if(!err) {
+				res.render('materiaPrima/info', { materia: rows });
+			} else {
+				res.send('err', 500);
+			}
+		})
 	}
 };
 

@@ -51,7 +51,7 @@ Produto.materiasPrimas = function(id, callback) {
 	'use strict'
 
 	var query = null;
-	query = "select distinct materia_prima.name from materia_prima inner join produto_materia on materia_prima.id=produto_materia.id_materia where produto_materia.id_produto="+id;
+	query = "select distinct * from materia_prima inner join produto_materia on materia_prima.id=produto_materia.id_materia where produto_materia.id_produto="+id;
 	db.cnn.exec(query, callback);
 }
 
@@ -59,10 +59,24 @@ Produto.insertMateria = function(id_produto, id_materia, callback) {
 	'use strict'
 
 	var query = null;
-	var query2 = null;
 	query = "insert into produto_materia(id_produto, id_materia) values("+id_produto+","+id_materia+");"
-	query2 = "delete a from produto_materia as a, produto_materia as b where a.id_produto=b.id_produto and a.id_materia=b.id_materia and a.id<b.id";
-	db.cnn.exec(query, query2, callback);
+	db.cnn.exec(query, callback);
+}
+
+Produto.removeDuplicate = function(callback) {
+	'use strict'
+
+	var query = null;
+	query = "delete a from produto_materia as a, produto_materia as b where a.id_produto=b.id_produto and a.id_materia=b.id_materia and a.id>b.id";
+	db.cnn.exec(query, callback);
+}
+
+Produto.removeMateria = function(id_produto, id_materia, callback) {
+	'use strict'
+
+	var query = null;
+	query = "delete from produto_materia where id_produto="+id_produto+" and id_materia="+id_materia;
+	db.cnn.exec(query, callback);
 }
 
 module.exports = Produto;
